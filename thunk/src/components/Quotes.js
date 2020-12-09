@@ -24,6 +24,7 @@ const Quotes = ({ quote, isFetching, error }) => {
 };
 
 const mapStateToProps = state => {
+  console.log(state);
   return {
     quote: state.quote,
     isFetching: state.isFetching,
