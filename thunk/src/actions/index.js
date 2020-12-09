@@ -11,15 +11,16 @@ export const getQuote = () => dispatch => {
     // 4. if our api call is unsuccessful, add error message to error
     dispatch({type:FETCHING_QUOTE_START});
 
-    axios
-        .get('https://api.kanye.rest')
-        .then(res=> {
-            dispatch({type:FETCHING_QUOTE_SUCCESS, payload:res.data.quote});
-        })
-        .catch(err => {
-            dispatch({type:FETCHING_QUOTE_FAIL, payload: err.response.message});
-        });
-        
+    setTimeout(()=> {
+        axios
+            .get('https://api.kanye.rest')
+            .then(res=> {
+                dispatch({type:FETCHING_QUOTE_SUCCESS, payload:res.data.quote});
+            })
+            .catch(err => {
+                dispatch({type:FETCHING_QUOTE_FAIL, payload: err.response.message});
+            });
+    }, 3000); 
 }
 
 const setName = (name) => {
