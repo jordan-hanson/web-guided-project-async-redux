@@ -21,3 +21,7 @@ export const getQuote = () => dispatch => {
         });
         
 }
+
+const setName = (name) => {
+    return({type:"SET_NAME", payload:name});
+}
