@@ -14,8 +14,7 @@ export const getQuote = () => dispatch => {
     axios
         .get('https://api.kanye.rest')
         .then(res=> {
-            console.log(res);
-            // dispatch({type:FETCHING_QUOTE_SUCCESS, payload:});
+            dispatch({type:FETCHING_QUOTE_SUCCESS, payload:res.data.quote});
         })
         
 }
