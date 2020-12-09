@@ -6,5 +6,9 @@ export const getQuote = () => dispatch => {
     // 3. if our api call is successful, add result to quote
     // 4. if our api call is unsuccessful, add error message to error
     dispatch({type:'FETCHING_QUOTE_START'});
-    dispatch({type:'FETCHING_QUOTE_SUCCESS', payload:"THIS IS A NEW QUOTE"});
+    setTimeout(()=>{
+        dispatch({type:'FETCHING_QUOTE_SUCCESS', payload:"THIS IS A NEW QUOTE"});    
+    }, 3000);
+    
+    
 }
