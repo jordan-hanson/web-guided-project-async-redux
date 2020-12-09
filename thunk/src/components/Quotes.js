@@ -15,6 +15,10 @@ const Quotes = ({ quote, isFetching, error }) => {
     return <h2>Fetching quote for ya!</h2>;
   }
 
+  const handleClick = ()=> {
+
+  }
+
   return (
     <>
       <h2>Kanye says: {quote}</h2>
@@ -31,4 +35,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(Quotes);
+export default connect(mapStateToProps, {getQuote})(Quotes);
