@@ -16,8 +16,14 @@ export const reducer = (state = initialState, action) => {
     case('FETCHING_QUOTE_SUCCESS'):
       return({
         ...state,
-        quote: action.payload
+        quote: action.payload,
+        isFetching: false
       });
+    case('FETCHING_QUOTE_FAIL'):
+      return({
+        ...state,
+        error: action.payload
+      })
     default:
       return state;
   }
