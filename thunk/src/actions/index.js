@@ -19,7 +19,6 @@ export const getQuote = () => dispatch => {
         .catch(err => {
             dispatch({type:FETCHING_QUOTE_FAIL, payload: err.response.message});
         });
-
 }
 
 const setName = (name) => {
