@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { getQuote } from '../actions';
 
-const Quotes = ({ quote, isFetching, error }) => {
+const Quotes = ({ quote, isFetching, error, getQuote }) => {
   useEffect(() => {
   });
 
@@ -16,7 +16,7 @@ const Quotes = ({ quote, isFetching, error }) => {
   }
 
   const handleClick = ()=> {
-
+    getQuote();
   }
 
   return (
