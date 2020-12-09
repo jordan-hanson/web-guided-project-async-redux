@@ -18,7 +18,7 @@ const Quotes = ({ quote, isFetching, error }) => {
   return (
     <>
       <h2>Kanye says: {quote}</h2>
-      <button>Get new quote</button>
+      <button onClick={handleClick}>Get new quote</button>
     </>
   );
 };
