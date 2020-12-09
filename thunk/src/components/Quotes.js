@@ -5,7 +5,8 @@ import { getQuote } from '../actions';
 
 const Quotes = ({ quote, isFetching, error, getQuote }) => {
   useEffect(() => {
-  });
+    getQuote();
+  }, []);
 
   if (error) {
     return <h2>We got an error: {error}</h2>;
