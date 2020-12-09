@@ -4,21 +4,27 @@ export const FETCHING_QUOTE_START = 'FETCHING_QUOTE_START';
 export const FETCHING_QUOTE_SUCCESS = 'FETCHING_QUOTE_SUCCESS';
 export const FETCHING_QUOTE_FAIL = 'FETCHING_QUOTE_FAIL';
 
-export const getQuote = () => dispatch => {
-    // 1. set isFetching = true;
-    // 2. setoff our api call
-    // 3. if our api call is successful, add result to quote
-    // 4. if our api call is unsuccessful, add error message to error
-    dispatch({type:FETCHING_QUOTE_START});
 
-    axios
-        .get(`https://api.kanye.rest`)
-        .then(res=> {
-            dispatch({type:FETCHING_QUOTE_SUCCESS, payload:res.data.quote});
-        })
-        .catch(err => {
-            dispatch({type:FETCHING_QUOTE_FAIL, payload: err.response.message});
-        });
+//thunk:
+//0. dispatch, currentState, reducer
+//1. get actioncreator.
+//2. if typeof actionCreator === "object": currentState = reducer(actionCreator);
+//3. if typeof actionCreator === "function": actionCreator(dispatch);
+
+export const getQuote = () => {
+    return (dispatch => {
+
+        dispatch({type:FETCHING_QUOTE_START});
+
+        axios
+            .get(`https://api.kanye.rest`)
+            .then(res=> {
+                dispatch({type:FETCHING_QUOTE_SUCCESS, payload:res.data.quote});
+            })
+            .catch(err => {
+                dispatch({type:FETCHING_QUOTE_FAIL, payload: err.response.message});
+            });
+    });
 }
 
 const setFetchStart = (name) => {
