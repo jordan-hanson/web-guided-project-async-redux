@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 
 import { getQuote } from '../actions';
 
-const Quotes = ({ quote, isFetching, error }) => {
+const Quotes = ({ quote, isFetching, error, getQuote }) => {
   useEffect(() => {
-  });
+    getQuote()
+  }, []);
 
   if (error) {
     return <h2>We got an error: {error}</h2>;
@@ -15,10 +16,14 @@ const Quotes = ({ quote, isFetching, error }) => {
     return <h2>Fetching quote for ya!</h2>;
   }
 
+  const handleClick = () => {
+    getQuote();
+  }
+
   return (
     <>
       <h2>Kanye says: {quote}</h2>
-      <button>Get new quote</button>
+      <button onClick={handleClick}>Get new quote</button>
     </>
   );
 };
@@ -31,4 +36,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(Quotes);
+export default connect(mapStateToProps, { getQuote })(Quotes);
